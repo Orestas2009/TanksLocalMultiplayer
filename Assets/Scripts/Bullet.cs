@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     public float lifetime = 3;
     public int damage = 10;
 
+    [Header("VFX")]
+    public GameObject explosionVFX;
 
     void Start()
     {
@@ -16,8 +18,8 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        //TODO: Add explosion effect
-        //TODO: Do damage
+        Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        
         var enemy = collision.gameObject.GetComponent<Health>();
         if (enemy != null)
         {
