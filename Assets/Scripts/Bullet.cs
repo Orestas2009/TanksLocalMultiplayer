@@ -25,7 +25,13 @@ public class Bullet : MonoBehaviour
         {
             enemy.TakeDamage(damage);
         }
-        //TODO: destroy destructables (like crates)
+        
+        var destructable = collision.gameObject.GetComponent<Destructable>();
+        if (destructable != null)
+        {
+            destructable.Detroy();
+        }
+        
         Destroy(gameObject);
     }
 }
