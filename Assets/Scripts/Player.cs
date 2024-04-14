@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float fireRate = 0.5f;
-
+    public AudioClip vroom;
+    public AudioClip bang;
+    public AudioSource sound;
     [Header("UI")]
     public Transform healthBar;
     
@@ -25,11 +27,13 @@ public class Player : MonoBehaviour
 
         //InvokeRepeating(function name, time to start, repeat rate)
         InvokeRepeating(nameof(Fire), fireRate, fireRate);
+        sound.PlayOneShot(vroom);
     }
 
     void Fire()
     {
         Instantiate(bulletPrefab, bulletSpawn.position, transform.rotation);
+        sound.PlayOneShot(bang);
     }
 
     void Update()

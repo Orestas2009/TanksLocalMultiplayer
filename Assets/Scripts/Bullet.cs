@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
     public float speed = 10;
     public float lifetime = 3;
     public int damage = 10;
-
+    
     [Header("VFX")]
     public GameObject explosionVFX;
 
